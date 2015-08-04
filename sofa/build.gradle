@@ -18,21 +18,7 @@ android {
     }
 }
 
-def archivesBaseName = 'sofa'
-
-android.libraryVariants.all { variant ->
-    variant.outputs.each { output ->
-        def outputFile = output.outputFile
-        if (outputFile != null && outputFile.name.endsWith('.aar')) {
-            def fileName = "${archivesBaseName}-${version}.aar"
-            output.outputFile = new File(outputFile.parent, fileName)
-        }
-    }
-}
-
 dependencies {
-    compile 'com.android.support:recyclerview-v7:22.2.0'
-    compile 'com.android.support:leanback-v17:22.2.0'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.android.support:leanback-v17:22.2.1'
 }
-
-apply from: '../config/bintray.gradle'
